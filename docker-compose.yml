@@ -2,6 +2,7 @@ version: '2'
 services:
   db:
     image: postgres:16
+    container_name: odoo-db
     user: root
     environment:
       - POSTGRES_USER=odoo
@@ -11,8 +12,9 @@ services:
     volumes:
         - ./postgresql:/var/lib/postgresql/data
 
-  odoo17:
+  odoo:
     image: odoo:17
+    container_name: odoo-17
     user: root
     depends_on:
       - db
